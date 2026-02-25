@@ -1,0 +1,196 @@
+name: Autograding
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  AZURE_OPENAI_ENDPOINT: ${{ secrets.AZURE_OPENAI_ENDPOINT }}
+  AZURE_OPENAI_API_KEY: ${{ secrets.AZURE_OPENAI_API_KEY }}
+  AZURE_CONTENT_SAFETY_ENDPOINT: ${{ secrets.AZURE_CONTENT_SAFETY_ENDPOINT }}
+  AZURE_CONTENT_SAFETY_KEY: ${{ secrets.AZURE_CONTENT_SAFETY_KEY }}
+  AZURE_AI_LANGUAGE_ENDPOINT: ${{ secrets.AZURE_AI_LANGUAGE_ENDPOINT }}
+  AZURE_AI_LANGUAGE_KEY: ${{ secrets.AZURE_AI_LANGUAGE_KEY }}
+  STUDENT_CORPUS_SEED: ${{ github.actor }}
+
+jobs:
+  grade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run student code
+        run: python app/main.py
+        continue-on-error: true
+
+      - name: Clone autograder
+        uses: actions/checkout@v4
+        with:
+          repository: Tech901/ai102-autograder-tests
+          token: ${{ secrets.AUTOGRADER_PAT }}
+          path: .autograder
+
+      # --- 15 tests, 100 points ---
+      - name: "test_canary_not_default"
+        id: test1
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "test_canary_not_default"
+          command: "python -m pytest .autograder/activity01-hello-azure-ai/test_hidden.py::test_canary_not_default -v --tb=short"
+          timeout: "5"
+          max-score: "7"
+
+      - name: "test_task_name"
+        id: test2
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "test_task_name"
+          command: "python -m pytest .autograder/activity01-hello-azure-ai/test_hidden.py::test_task_name -v --tb=short"
+          timeout: "5"
+          max-score: "7"
+
+      - name: "test_status_not_error"
+        id: test3
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "test_status_not_error"
+          command: "python -m pytest .autograder/activity01-hello-azure-ai/test_hidden.py::test_status_not_error -v --tb=short"
+          timeout: "5"
+          max-score: "7"
+
+      - name: "test_classification_has_required_keys"
+        id: test4
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "test_classification_has_required_keys"
+          command: "python -m pytest .autograder/activity01-hello-azure-ai/test_hidden.py::test_classification_has_required_keys -v --tb=short"
+          timeout: "5"
+          max-score: "7"
+
+      - name: "test_classification_valid_category"
+        id: test5
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "test_classification_valid_category"
+          command: "python -m pytest .autograder/activity01-hello-azure-ai/test_hidden.py::test_classification_valid_category -v --tb=short"
+          timeout: "5"
+          max-score: "7"
+
+      - name: "test_content_safety_structure"
+        id: test6
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "test_content_safety_structure"
+          command: "python -m pytest .autograder/activity01-hello-azure-ai/test_hidden.py::test_content_safety_structure -v --tb=short"
+          timeout: "5"
+          max-score: "7"
+
+      - name: "test_key_phrases_not_empty"
+        id: test7
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "test_key_phrases_not_empty"
+          command: "python -m pytest .autograder/activity01-hello-azure-ai/test_hidden.py::test_key_phrases_not_empty -v --tb=short"
+          timeout: "5"
+          max-score: "7"
+
+      - name: "test_metadata_has_timestamp"
+        id: test8
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "test_metadata_has_timestamp"
+          command: "python -m pytest .autograder/activity01-hello-azure-ai/test_hidden.py::test_metadata_has_timestamp -v --tb=short"
+          timeout: "5"
+          max-score: "7"
+
+      - name: "test_content_safety_categories_complete"
+        id: test9
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "test_content_safety_categories_complete"
+          command: "python -m pytest .autograder/activity01-hello-azure-ai/test_hidden.py::test_content_safety_categories_complete -v --tb=short"
+          timeout: "5"
+          max-score: "7"
+
+      - name: "test_key_phrases_are_relevant"
+        id: test10
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "test_key_phrases_are_relevant"
+          command: "python -m pytest .autograder/activity01-hello-azure-ai/test_hidden.py::test_key_phrases_are_relevant -v --tb=short"
+          timeout: "5"
+          max-score: "7"
+
+      - name: "test_classification_confidence_range"
+        id: test11
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "test_classification_confidence_range"
+          command: "python -m pytest .autograder/activity01-hello-azure-ai/test_hidden.py::test_classification_confidence_range -v --tb=short"
+          timeout: "5"
+          max-score: "6"
+
+      - name: "test_result_status_is_success"
+        id: test12
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "test_result_status_is_success"
+          command: "python -m pytest .autograder/activity01-hello-azure-ai/test_hidden.py::test_result_status_is_success -v --tb=short"
+          timeout: "5"
+          max-score: "6"
+
+      - name: "test_classify_novel_input_noise"
+        id: test13
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "test_classify_novel_input_noise"
+          command: "python -m pytest .autograder/activity01-hello-azure-ai/test_hidden.py::test_classify_novel_input_noise -v --tb=short"
+          timeout: "5"
+          max-score: "6"
+
+      - name: "test_content_safety_novel_input_water"
+        id: test14
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "test_content_safety_novel_input_water"
+          command: "python -m pytest .autograder/activity01-hello-azure-ai/test_hidden.py::test_content_safety_novel_input_water -v --tb=short"
+          timeout: "5"
+          max-score: "6"
+
+      - name: "test_extract_key_phrases_novel_input_water"
+        id: test15
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: "test_extract_key_phrases_novel_input_water"
+          command: "python -m pytest .autograder/activity01-hello-azure-ai/test_hidden.py::test_extract_key_phrases_novel_input_water -v --tb=short"
+          timeout: "5"
+          max-score: "6"
+
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          TEST1_RESULTS: "${{ steps.test1.outputs.result }}"
+          TEST2_RESULTS: "${{ steps.test2.outputs.result }}"
+          TEST3_RESULTS: "${{ steps.test3.outputs.result }}"
+          TEST4_RESULTS: "${{ steps.test4.outputs.result }}"
+          TEST5_RESULTS: "${{ steps.test5.outputs.result }}"
+          TEST6_RESULTS: "${{ steps.test6.outputs.result }}"
+          TEST7_RESULTS: "${{ steps.test7.outputs.result }}"
+          TEST8_RESULTS: "${{ steps.test8.outputs.result }}"
+          TEST9_RESULTS: "${{ steps.test9.outputs.result }}"
+          TEST10_RESULTS: "${{ steps.test10.outputs.result }}"
+          TEST11_RESULTS: "${{ steps.test11.outputs.result }}"
+          TEST12_RESULTS: "${{ steps.test12.outputs.result }}"
+          TEST13_RESULTS: "${{ steps.test13.outputs.result }}"
+          TEST14_RESULTS: "${{ steps.test14.outputs.result }}"
+          TEST15_RESULTS: "${{ steps.test15.outputs.result }}"
+        with:
+          runners: test1,test2,test3,test4,test5,test6,test7,test8,test9,test10,test11,test12,test13,test14,test15

@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" role="img">
+  <title>API Quick Reference - Activity 1 Services</title>
+  <desc>Side-by-side comparison of the three Azure AI services used in Activity 1: Azure OpenAI, Content Safety, and AI Language. Shows SDK class, authentication, method, input, and output for each service.</desc>
+
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0E0E0E"/>
+      <stop offset="100%" stop-color="#080808"/>
+    </linearGradient>
+    <linearGradient id="cellGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1A1A1A"/>
+      <stop offset="100%" stop-color="#121212"/>
+    </linearGradient>
+    <filter id="sh" x="-2%" y="-2%" width="106%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Canvas -->
+  <rect width="900" height="430" fill="url(#bgGrad)" rx="6"/>
+
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" font-family="Syne, Calibri, sans-serif" font-size="18" font-weight="700" fill="#FAFAFA">API Quick Reference</text>
+  <rect x="365" y="36" width="170" height="3" rx="1.5" fill="#FFBF3B"/>
+
+  <!-- Column positions: labels=15, col1=195, col2=430, col3=665 -->
+  <!-- Row positions: header=60, row1=115, row2=175, row3=235, row4=295, row5=355 -->
+
+  <!-- ═══ Column Headers ═══ -->
+  <g filter="url(#sh)">
+    <rect x="180" y="55" width="215" height="40" rx="4" fill="#1E1E1E" stroke="#FFBF3B" stroke-width="1.5"/>
+  </g>
+  <text x="287" y="80" text-anchor="middle" font-family="Syne, Calibri, sans-serif" font-size="13" font-weight="700" fill="#FFBF3B">Azure OpenAI</text>
+
+  <g filter="url(#sh)">
+    <rect x="415" y="55" width="215" height="40" rx="4" fill="#1E1E1E" stroke="#2D5A94" stroke-width="1.5"/>
+  </g>
+  <text x="522" y="80" text-anchor="middle" font-family="Syne, Calibri, sans-serif" font-size="13" font-weight="700" fill="#2D5A94">Content Safety</text>
+
+  <g filter="url(#sh)">
+    <rect x="650" y="55" width="215" height="40" rx="4" fill="#1E1E1E" stroke="#8DC63F" stroke-width="1.5"/>
+  </g>
+  <text x="757" y="80" text-anchor="middle" font-family="Syne, Calibri, sans-serif" font-size="13" font-weight="700" fill="#8DC63F">AI Language</text>
+
+  <!-- ═══ Row Labels ═══ -->
+  <text x="95" y="138" text-anchor="middle" font-family="Syne, Calibri, sans-serif" font-size="10" font-weight="700" fill="#888">SDK CLASS</text>
+  <text x="95" y="198" text-anchor="middle" font-family="Syne, Calibri, sans-serif" font-size="10" font-weight="700" fill="#888">AUTH</text>
+  <text x="95" y="258" text-anchor="middle" font-family="Syne, Calibri, sans-serif" font-size="10" font-weight="700" fill="#888">METHOD</text>
+  <text x="95" y="318" text-anchor="middle" font-family="Syne, Calibri, sans-serif" font-size="10" font-weight="700" fill="#888">INPUT</text>
+  <text x="95" y="378" text-anchor="middle" font-family="Syne, Calibri, sans-serif" font-size="10" font-weight="700" fill="#888">OUTPUT</text>
+
+  <!-- ═══ Row 1: SDK Class ═══ -->
+  <rect x="180" y="115" width="215" height="40" rx="3" fill="url(#cellGrad)" stroke="#333"/>
+  <text x="287" y="140" text-anchor="middle" font-family="Source Code Pro, Consolas, monospace" font-size="11" fill="#FFBF3B">AzureOpenAI</text>
+
+  <rect x="415" y="115" width="215" height="40" rx="3" fill="url(#cellGrad)" stroke="#333"/>
+  <text x="522" y="140" text-anchor="middle" font-family="Source Code Pro, Consolas, monospace" font-size="11" fill="#2D9CDB">ContentSafetyClient</text>
+
+  <rect x="650" y="115" width="215" height="40" rx="3" fill="url(#cellGrad)" stroke="#333"/>
+  <text x="757" y="140" text-anchor="middle" font-family="Source Code Pro, Consolas, monospace" font-size="11" fill="#8DC63F">TextAnalyticsClient</text>
+
+  <!-- ═══ Row 2: Auth ═══ -->
+  <rect x="180" y="175" width="215" height="40" rx="3" fill="url(#cellGrad)" stroke="#333"/>
+  <text x="287" y="192" text-anchor="middle" font-family="Source Sans 3, Calibri, sans-serif" font-size="10" fill="#CCC">endpoint + api_key</text>
+  <text x="287" y="206" text-anchor="middle" font-family="Source Sans 3, Calibri, sans-serif" font-size="9" fill="#777">+ api_version</text>
+
+  <rect x="415" y="175" width="215" height="40" rx="3" fill="url(#cellGrad)" stroke="#333"/>
+  <text x="522" y="192" text-anchor="middle" font-family="Source Sans 3, Calibri, sans-serif" font-size="10" fill="#CCC">endpoint +</text>
+  <text x="522" y="206" text-anchor="middle" font-family="Source Code Pro, Consolas, monospace" font-size="9" fill="#777">AzureKeyCredential</text>
+
+  <rect x="650" y="175" width="215" height="40" rx="3" fill="url(#cellGrad)" stroke="#333"/>
+  <text x="757" y="192" text-anchor="middle" font-family="Source Sans 3, Calibri, sans-serif" font-size="10" fill="#CCC">endpoint +</text>
+  <text x="757" y="206" text-anchor="middle" font-family="Source Code Pro, Consolas, monospace" font-size="9" fill="#777">AzureKeyCredential</text>
+
+  <!-- ═══ Row 3: Method ═══ -->
+  <rect x="180" y="235" width="215" height="40" rx="3" fill="url(#cellGrad)" stroke="#333"/>
+  <text x="287" y="256" text-anchor="middle" font-family="Source Code Pro, Consolas, monospace" font-size="10" fill="#FFBF3B">.chat.completions</text>
+  <text x="287" y="268" text-anchor="middle" font-family="Source Code Pro, Consolas, monospace" font-size="10" fill="#FFBF3B">.create()</text>
+
+  <rect x="415" y="235" width="215" height="40" rx="3" fill="url(#cellGrad)" stroke="#333"/>
+  <text x="522" y="260" text-anchor="middle" font-family="Source Code Pro, Consolas, monospace" font-size="10" fill="#2D9CDB">.analyze_text()</text>
+
+  <rect x="650" y="235" width="215" height="40" rx="3" fill="url(#cellGrad)" stroke="#333"/>
+  <text x="757" y="260" text-anchor="middle" font-family="Source Code Pro, Consolas, monospace" font-size="10" fill="#8DC63F">.extract_key_phrases()</text>
+
+  <!-- ═══ Row 4: Input ═══ -->
+  <rect x="180" y="295" width="215" height="40" rx="3" fill="url(#cellGrad)" stroke="#333"/>
+  <text x="287" y="312" text-anchor="middle" font-family="Source Code Pro, Consolas, monospace" font-size="9" fill="#CCC">messages[] + model</text>
+  <text x="287" y="326" text-anchor="middle" font-family="Source Code Pro, Consolas, monospace" font-size="9" fill="#777">+ response_format</text>
+
+  <rect x="415" y="295" width="215" height="40" rx="3" fill="url(#cellGrad)" stroke="#333"/>
+  <text x="522" y="316" text-anchor="middle" font-family="Source Code Pro, Consolas, monospace" font-size="9" fill="#CCC">AnalyzeTextOptions(text=...)</text>
+
+  <rect x="650" y="295" width="215" height="40" rx="3" fill="url(#cellGrad)" stroke="#333"/>
+  <text x="757" y="316" text-anchor="middle" font-family="Source Code Pro, Consolas, monospace" font-size="9" fill="#CCC">[text]  (list of strings)</text>
+
+  <!-- ═══ Row 5: Output ═══ -->
+  <rect x="180" y="355" width="215" height="40" rx="3" fill="url(#cellGrad)" stroke="#333"/>
+  <text x="287" y="372" text-anchor="middle" font-family="Source Code Pro, Consolas, monospace" font-size="9" fill="#CCC">choices[0].message</text>
+  <text x="287" y="386" text-anchor="middle" font-family="Source Code Pro, Consolas, monospace" font-size="9" fill="#777">.content → JSON string</text>
+
+  <rect x="415" y="355" width="215" height="40" rx="3" fill="url(#cellGrad)" stroke="#333"/>
+  <text x="522" y="372" text-anchor="middle" font-family="Source Code Pro, Consolas, monospace" font-size="9" fill="#CCC">categories_analysis</text>
+  <text x="522" y="386" text-anchor="middle" font-family="Source Code Pro, Consolas, monospace" font-size="9" fill="#777">→ list of {category, severity}</text>
+
+  <rect x="650" y="355" width="215" height="40" rx="3" fill="url(#cellGrad)" stroke="#333"/>
+  <text x="757" y="372" text-anchor="middle" font-family="Source Code Pro, Consolas, monospace" font-size="9" fill="#CCC">key_phrases</text>
+  <text x="757" y="386" text-anchor="middle" font-family="Source Code Pro, Consolas, monospace" font-size="9" fill="#777">→ list of strings</text>
+
+  <!-- Footer -->
+  <text x="450" y="418" text-anchor="middle" font-family="Source Sans 3, Calibri, sans-serif" font-size="10" fill="#777">All three services follow the same Configure → Create → Call pattern</text>
+
+  <!-- Tech901 badge -->
+  <text x="860" y="418" text-anchor="end" font-family="Syne, Calibri, sans-serif" font-size="9" font-weight="700" fill="#FFBF3B">Tech901 AI-102</text>
+</svg>

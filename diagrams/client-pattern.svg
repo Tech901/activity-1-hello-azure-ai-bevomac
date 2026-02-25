@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 310" role="img">
+  <title>Azure AI Client Pattern</title>
+  <desc>The universal Azure AI integration pattern used in Activity 1: combine endpoint and key to create a client, send input data as a request, receive a structured JSON response.</desc>
+
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0E0E0E"/>
+      <stop offset="100%" stop-color="#080808"/>
+    </linearGradient>
+    <linearGradient id="boxGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1E1E1E"/>
+      <stop offset="100%" stop-color="#141414"/>
+    </linearGradient>
+    <filter id="sh" x="-5%" y="-5%" width="115%" height="120%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <marker id="arrGreen" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <path d="M0,0 L10,3.5 L0,7 Z" fill="#8DC63F"/>
+    </marker>
+    <marker id="arrAmber" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <path d="M0,0 L10,3.5 L0,7 Z" fill="#FFBF3B"/>
+    </marker>
+    <marker id="arrBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <path d="M0,0 L10,3.5 L0,7 Z" fill="#2D5A94"/>
+    </marker>
+  </defs>
+
+  <!-- Canvas -->
+  <rect width="900" height="310" fill="url(#bgGrad)" rx="6"/>
+
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" font-family="Syne, Calibri, sans-serif" font-size="18" font-weight="700" fill="#FAFAFA">Azure AI Client Pattern</text>
+  <rect x="340" y="36" width="220" height="3" rx="1.5" fill="#FFBF3B"/>
+
+  <!-- Row labels -->
+  <text x="60" y="80" font-family="Syne, Calibri, sans-serif" font-size="10" font-weight="700" fill="#555">CONFIGURE</text>
+  <text x="60" y="163" font-family="Syne, Calibri, sans-serif" font-size="10" font-weight="700" fill="#555">CREATE</text>
+  <text x="60" y="250" font-family="Syne, Calibri, sans-serif" font-size="10" font-weight="700" fill="#555">CALL</text>
+
+  <!-- ═══ Row 1: Endpoint + API Key ═══ -->
+  <g filter="url(#sh)">
+    <rect x="200" y="56" width="160" height="50" rx="4" fill="url(#boxGrad)" stroke="#333"/>
+    <rect x="200" y="56" width="4" height="50" rx="2 0 0 2" fill="#FFBF3B"/>
+  </g>
+  <text x="280" y="77" text-anchor="middle" font-family="Syne, Calibri, sans-serif" font-size="11" font-weight="700" fill="#FFBF3B">Endpoint</text>
+  <text x="280" y="95" text-anchor="middle" font-family="Source Sans 3, Calibri, sans-serif" font-size="9" fill="#CCC">https://*.azure.com</text>
+
+  <!-- Plus sign -->
+  <text x="420" y="86" text-anchor="middle" font-family="Syne, Calibri, sans-serif" font-size="18" font-weight="700" fill="#555">+</text>
+
+  <g filter="url(#sh)">
+    <rect x="480" y="56" width="160" height="50" rx="4" fill="url(#boxGrad)" stroke="#333"/>
+    <rect x="480" y="56" width="4" height="50" rx="2 0 0 2" fill="#FFBF3B"/>
+  </g>
+  <text x="560" y="77" text-anchor="middle" font-family="Syne, Calibri, sans-serif" font-size="11" font-weight="700" fill="#FFBF3B">API Key</text>
+  <text x="560" y="95" text-anchor="middle" font-family="Source Sans 3, Calibri, sans-serif" font-size="9" fill="#CCC">AzureKeyCredential</text>
+
+  <!-- Arrow: Row 1 → Row 2 (vertical, centered) -->
+  <line x1="420" y1="106" x2="420" y2="138" stroke="#FFBF3B" stroke-width="1.5" marker-end="url(#arrAmber)"/>
+
+  <!-- ═══ Row 2: SDK Client ═══ -->
+  <g filter="url(#sh)">
+    <rect x="290" y="145" width="260" height="50" rx="4" fill="url(#boxGrad)" stroke="#333"/>
+    <rect x="290" y="145" width="4" height="50" rx="2 0 0 2" fill="#2D5A94"/>
+  </g>
+  <text x="420" y="166" text-anchor="middle" font-family="Syne, Calibri, sans-serif" font-size="12" font-weight="700" fill="#2D5A94">SDK Client</text>
+  <text x="420" y="184" text-anchor="middle" font-family="Source Sans 3, Calibri, sans-serif" font-size="9" fill="#CCC">AzureOpenAI / ContentSafetyClient / TextAnalyticsClient</text>
+
+  <!-- Arrow: Row 2 → Row 3 (vertical, centered) -->
+  <line x1="420" y1="195" x2="420" y2="224" stroke="#2D5A94" stroke-width="1.5" marker-end="url(#arrBlue)"/>
+
+  <!-- ═══ Row 3: Input → method() → Response ═══ -->
+  <g filter="url(#sh)">
+    <rect x="155" y="228" width="150" height="50" rx="4" fill="url(#boxGrad)" stroke="#333"/>
+    <rect x="155" y="228" width="4" height="50" rx="2 0 0 2" fill="#FFBF3B"/>
+  </g>
+  <text x="230" y="249" text-anchor="middle" font-family="Syne, Calibri, sans-serif" font-size="11" font-weight="700" fill="#FFBF3B">Input Data</text>
+  <text x="230" y="267" text-anchor="middle" font-family="Source Sans 3, Calibri, sans-serif" font-size="9" fill="#CCC">311 complaint text</text>
+
+  <!-- Arrow: Input → Method -->
+  <line x1="305" y1="253" x2="340" y2="253" stroke="#8DC63F" stroke-width="1.5" marker-end="url(#arrGreen)"/>
+
+  <g filter="url(#sh)">
+    <rect x="345" y="228" width="150" height="50" rx="4" fill="url(#boxGrad)" stroke="#333"/>
+    <rect x="345" y="228" width="4" height="50" rx="2 0 0 2" fill="#2D5A94"/>
+  </g>
+  <text x="420" y="249" text-anchor="middle" font-family="Syne, Calibri, sans-serif" font-size="11" font-weight="700" fill="#2D5A94">client.method()</text>
+  <text x="420" y="267" text-anchor="middle" font-family="Source Sans 3, Calibri, sans-serif" font-size="9" fill="#CCC">create() / analyze_text()</text>
+
+  <!-- Arrow: Method → Response -->
+  <line x1="495" y1="253" x2="530" y2="253" stroke="#8DC63F" stroke-width="1.5" marker-end="url(#arrGreen)"/>
+
+  <g filter="url(#sh)">
+    <rect x="535" y="228" width="150" height="50" rx="4" fill="url(#boxGrad)" stroke="#333"/>
+    <rect x="535" y="228" width="4" height="50" rx="2 0 0 2" fill="#8DC63F"/>
+  </g>
+  <text x="610" y="249" text-anchor="middle" font-family="Syne, Calibri, sans-serif" font-size="11" font-weight="700" fill="#8DC63F">Response</text>
+  <text x="610" y="267" text-anchor="middle" font-family="Source Sans 3, Calibri, sans-serif" font-size="9" fill="#CCC">Parsed JSON result</text>
+
+  <!-- Legend -->
+  <text x="450" y="300" text-anchor="middle" font-family="Source Sans 3, Calibri, sans-serif" font-size="10" fill="#777">Every Azure AI service follows this same pattern</text>
+
+  <!-- Tech901 badge -->
+  <text x="860" y="300" text-anchor="end" font-family="Syne, Calibri, sans-serif" font-size="9" font-weight="700" fill="#FFBF3B">Tech901 AI-102</text>
+</svg>

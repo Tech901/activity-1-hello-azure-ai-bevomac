@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 220" role="img">
+  <title>Hello Azure AI Pipeline</title>
+  <desc>A horizontal 5-node workflow showing the Activity 1 three-service pipeline: 311 Request input flows through Azure OpenAI, Content Safety, and AI Language to produce result.json output.</desc>
+
+  <defs>
+    <linearGradient id="containerGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1E1E1E"/>
+      <stop offset="100%" stop-color="#141414"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    <marker id="arrowAmber" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#FFBF3B"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#2D5A94"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#8DC63F"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="220" fill="#0A0A0A" rx="6"/>
+
+  <!-- Title -->
+  <text x="450" y="32" text-anchor="middle" font-family="Syne, Calibri, sans-serif" font-size="18" font-weight="bold" fill="#FAFAFA">Hello Azure AI Pipeline</text>
+  <rect x="340" y="37" width="220" height="3" fill="#FFBF3B" rx="1.5"/>
+
+  <!-- Node 1: 311 Request -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="62" width="140" height="68" rx="6" fill="url(#containerGrad)" stroke="#1a1a1a"/>
+    <rect x="30" y="62" width="4" height="68" rx="2" fill="#FFBF3B"/>
+  </g>
+  <rect x="38" y="69" width="124" height="20" rx="3" fill="#FFBF3B" opacity="0.15"/>
+  <text x="100" y="83" font-family="Syne, Calibri, sans-serif" font-size="11" font-weight="bold" fill="#FFBF3B" text-anchor="middle">311 Request</text>
+  <text x="100" y="112" font-family="Source Sans 3, Calibri, sans-serif" font-size="9" fill="#CCC" text-anchor="middle">Citizen complaint</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="170" y1="96" x2="200" y2="96" stroke="#FFBF3B" stroke-width="1.5" marker-end="url(#arrowAmber)"/>
+  <text x="185" y="89" font-family="Source Sans 3, Calibri, sans-serif" font-size="8" fill="#999" text-anchor="middle">text</text>
+
+  <!-- Node 2: Azure OpenAI -->
+  <g filter="url(#shadow)">
+    <rect x="210" y="62" width="140" height="68" rx="6" fill="url(#containerGrad)" stroke="#1a1a1a"/>
+    <rect x="210" y="62" width="4" height="68" rx="2" fill="#2D5A94"/>
+  </g>
+  <rect x="218" y="69" width="124" height="20" rx="3" fill="#2D5A94" opacity="0.15"/>
+  <text x="280" y="83" font-family="Syne, Calibri, sans-serif" font-size="11" font-weight="bold" fill="#2D5A94" text-anchor="middle">Azure OpenAI</text>
+  <text x="280" y="112" font-family="Source Sans 3, Calibri, sans-serif" font-size="9" fill="#CCC" text-anchor="middle">GPT-4o classify</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="350" y1="96" x2="380" y2="96" stroke="#2D5A94" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+
+  <!-- Node 3: Content Safety -->
+  <g filter="url(#shadow)">
+    <rect x="390" y="62" width="140" height="68" rx="6" fill="url(#containerGrad)" stroke="#1a1a1a"/>
+    <rect x="390" y="62" width="4" height="68" rx="2" fill="#2D5A94"/>
+  </g>
+  <rect x="398" y="69" width="124" height="20" rx="3" fill="#2D5A94" opacity="0.15"/>
+  <text x="460" y="83" font-family="Syne, Calibri, sans-serif" font-size="11" font-weight="bold" fill="#2D5A94" text-anchor="middle">Content Safety</text>
+  <text x="460" y="112" font-family="Source Sans 3, Calibri, sans-serif" font-size="9" fill="#CCC" text-anchor="middle">Harm detection</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="530" y1="96" x2="560" y2="96" stroke="#2D5A94" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+
+  <!-- Node 4: AI Language -->
+  <g filter="url(#shadow)">
+    <rect x="570" y="62" width="140" height="68" rx="6" fill="url(#containerGrad)" stroke="#1a1a1a"/>
+    <rect x="570" y="62" width="4" height="68" rx="2" fill="#2D5A94"/>
+  </g>
+  <rect x="578" y="69" width="124" height="20" rx="3" fill="#2D5A94" opacity="0.15"/>
+  <text x="640" y="83" font-family="Syne, Calibri, sans-serif" font-size="11" font-weight="bold" fill="#2D5A94" text-anchor="middle">AI Language</text>
+  <text x="640" y="112" font-family="Source Sans 3, Calibri, sans-serif" font-size="9" fill="#CCC" text-anchor="middle">Key phrases</text>
+
+  <!-- Arrow 4→5 -->
+  <line x1="710" y1="96" x2="740" y2="96" stroke="#8DC63F" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+  <text x="725" y="89" font-family="Source Sans 3, Calibri, sans-serif" font-size="8" fill="#999" text-anchor="middle">JSON</text>
+
+  <!-- Node 5: result.json -->
+  <g filter="url(#shadow)">
+    <rect x="750" y="62" width="120" height="68" rx="6" fill="url(#containerGrad)" stroke="#1a1a1a"/>
+    <rect x="750" y="62" width="4" height="68" rx="2" fill="#8DC63F"/>
+  </g>
+  <rect x="758" y="69" width="104" height="20" rx="3" fill="#8DC63F" opacity="0.15"/>
+  <text x="810" y="83" font-family="Syne, Calibri, sans-serif" font-size="11" font-weight="bold" fill="#8DC63F" text-anchor="middle">result.json</text>
+  <text x="810" y="112" font-family="Source Sans 3, Calibri, sans-serif" font-size="9" fill="#CCC" text-anchor="middle">3 outputs combined</text>
+
+  <!-- Bottom legend -->
+  <text x="40" y="165" font-family="Source Sans 3, Calibri, sans-serif" font-size="10" fill="#777">Azure AI Services — Client → Request → Response pattern</text>
+
+  <!-- Tech901 AI-102 badge -->
+  <g transform="translate(810, 185)">
+    <rect x="0" y="0" width="72" height="18" rx="3" fill="#1E1E1E" stroke="#333" stroke-width="0.5"/>
+    <text x="36" y="12" font-family="Syne, Calibri, sans-serif" font-size="7" font-weight="bold" fill="#FFBF3B" text-anchor="middle">Tech901 AI-102</text>
+  </g>
+</svg>

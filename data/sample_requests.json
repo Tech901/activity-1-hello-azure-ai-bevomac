@@ -1,0 +1,47 @@
+[
+  {
+    "id": "SR-001",
+    "text": "I hit a pothole on Poplar Avenue right by the Walgreens and it blew out my front tire. This is the THIRD time this year. Somebody's gonna get hurt if y'all don't fix this.",
+    "expected_category": "Pothole"
+  },
+  {
+    "id": "SR-002",
+    "text": "Every single night after midnight that bar on Beale is blasting music so loud my windows rattle. I work at 6 AM. Called twice already and nothing happened.",
+    "expected_category": "Noise Complaint"
+  },
+  {
+    "id": "SR-003",
+    "text": "There is raw sewage bubbling up through the street on Lamar right in front of the elementary school. Kids walk through this every morning. The smell hits you from a block away.",
+    "expected_category": "Water/Sewer"
+  },
+  {
+    "id": "SR-004",
+    "text": "The street light at Madison and Danny Thomas has been out for three weeks now. My grandmother won't walk to the bus stop anymore because it's pitch black. Please fix this.",
+    "expected_category": "Street Light"
+  },
+  {
+    "id": "SR-005",
+    "text": "Somebody dumped a whole living room set -- couch, recliner, TV stand -- in the vacant lot on Chelsea. Now the rats are moving in. We've got kids playing on this block.",
+    "expected_category": "Trash/Litter"
+  },
+  {
+    "id": "SR-006",
+    "text": "Water has been running down the gutter on Airways Boulevard for two days straight. Not rain -- it's coming up from underground. The whole intersection is flooded.",
+    "expected_category": "Water/Sewer"
+  },
+  {
+    "id": "SR-007",
+    "text": "I pay my taxes and I can't even get a street light replaced? The whole block of Getwell between Park and Southern is dark. Four lights out. We've had two break-ins this month.",
+    "expected_category": "Street Light"
+  },
+  {
+    "id": "SR-008",
+    "text": "The road on Union Avenue by the hospital is torn up so bad it shakes your whole car, AND there's a group blasting music from the parking lot at all hours. Between the road damage and the noise I'm losing my mind.",
+    "expected_category": "Pothole"
+  },
+  {
+    "id": "SR-009",
+    "text": "I've been trying to pay my water bill online for three days but the city website keeps crashing. I called the help desk twice and got disconnected both times. At this point just tell me where to walk in and pay because your technology does not work.",
+    "expected_category": "Other"
+  }
+]
