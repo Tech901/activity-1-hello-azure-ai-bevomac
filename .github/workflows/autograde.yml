@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 
 env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   AZURE_OPENAI_ENDPOINT: ${{ secrets.AZURE_OPENAI_ENDPOINT }}
   AZURE_OPENAI_API_KEY: ${{ secrets.AZURE_OPENAI_API_KEY }}
   AZURE_CONTENT_SAFETY_ENDPOINT: ${{ secrets.AZURE_CONTENT_SAFETY_ENDPOINT }}
@@ -16,7 +17,7 @@ env:
 jobs:
   grade:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
@@ -26,6 +27,19 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      - name: Write .env file for autograder
+        shell: bash
+        run: |
+          {
+            echo "AZURE_OPENAI_ENDPOINT=$AZURE_OPENAI_ENDPOINT"
+            echo "AZURE_OPENAI_API_KEY=$AZURE_OPENAI_API_KEY"
+            echo "AZURE_CONTENT_SAFETY_ENDPOINT=$AZURE_CONTENT_SAFETY_ENDPOINT"
+            echo "AZURE_CONTENT_SAFETY_KEY=$AZURE_CONTENT_SAFETY_KEY"
+            echo "AZURE_AI_LANGUAGE_ENDPOINT=$AZURE_AI_LANGUAGE_ENDPOINT"
+            echo "AZURE_AI_LANGUAGE_KEY=$AZURE_AI_LANGUAGE_KEY"
+            echo "STUDENT_CORPUS_SEED=$STUDENT_CORPUS_SEED"
+          } > .env
 
       - name: Run student code
         run: python app/main.py
@@ -176,6 +190,7 @@ jobs:
 
       - name: Autograding Reporter
         uses: classroom-resources/autograding-grading-reporter@v1
+        continue-on-error: true
         env:
           TEST1_RESULTS: "${{ steps.test1.outputs.result }}"
           TEST2_RESULTS: "${{ steps.test2.outputs.result }}"
